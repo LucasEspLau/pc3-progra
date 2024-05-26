@@ -1,0 +1,16 @@
+@model pc3_progra.Integration.Entity.Usuario
+
+@{
+    ViewData["Title"] = "Perfil de Usuario";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="profile">
+    <h2>@Model.Nombre @Model.Apellido</h2>
+    <p><strong>Email:</strong> @Model.Email</p>
+    @if (!string.IsNullOrEmpty(Model.Avatar))
+    {
+        <img src="@Model.Avatar" alt="Avatar" style="width:100px; height:100px;" />
+    }
+</div>

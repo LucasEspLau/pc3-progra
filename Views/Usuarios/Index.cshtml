@@ -9,6 +9,7 @@
 <table class="table">
     <thead>
         <tr>
+            <th>Ir a Perfil</th>
             <th>ID</th>
             <th>Email</th>
             <th>Nombre</th>
@@ -20,6 +21,7 @@
         @foreach (var user in Model)
         {
             <tr>
+                <td><a href="@Url.Action("Perfil", new { Id = user.Id })">Ir a Perfil</a></td>
                 <td>@user.Id</td>
                 <td>@user.Email</td>
                 <td>@user.Nombre</td>

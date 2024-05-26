@@ -14,14 +14,23 @@ namespace pc3_progra.Controllers
     {
         private readonly ILogger<UsuariosController> _logger;
         private readonly ListarUsuariosApiIntegration _listUsers;
+        private readonly ListarUsuarioApiIntegration _unUser;
+
 
         public UsuariosController(ILogger<UsuariosController> logger,
-        ListarUsuariosApiIntegration listUsers)
+        ListarUsuariosApiIntegration listUsers,
+        ListarUsuarioApiIntegration unUser)
         {
             _logger = logger;
             _listUsers = listUsers;
+            _unUser = unUser;
         }
-
+        [HttpGet]
+        public async Task<IActionResult> Perfil(int Id)
+        {
+            Usuario user = await _unUser.GetUser(Id);
+            return View(user);
+        }
 
         [HttpGet]
 
