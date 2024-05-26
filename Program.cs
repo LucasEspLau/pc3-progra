@@ -16,8 +16,8 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<ListarUsuariosApiIntegration, ListarUsuariosApiIntegration>();
-
 builder.Services.AddScoped<ListarUsuarioApiIntegration, ListarUsuarioApiIntegration>();
+builder.Services.AddScoped<CrearUsuarioApiIntegration, CrearUsuarioApiIntegration>();
 
 
 
