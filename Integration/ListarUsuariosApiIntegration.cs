@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using pc3_progra.Integration.Entity;
 
 namespace pc3_progra.Integration
 {
@@ -27,7 +28,7 @@ namespace pc3_progra.Integration
                 HttpResponseMessage response = await httpClient.GetAsync(requestUrl);
                 if (response.IsSuccessStatusCode)
                 {
-                    var apiResponse = await response.Content.ReadFromJsonAsync<ApiResponse>();
+                    var apiResponse = await response.Content.ReadFromJsonAsync<ApiRespuesta>();
                     if (apiResponse != null)
                     {
                         listado = apiResponse.Data ?? new List<Usuario>();
@@ -40,5 +41,17 @@ namespace pc3_progra.Integration
             return listado;
 
         }
+
+        class ApiRespuesta
+        {
+            public int Page { get; set; }
+            public int PerPage { get; set; }
+            public int Total { get; set; }
+            public int TotalPages { get; set; }
+            public List<Usuario> Data { get; set; }
+            public Support Support { get; set; }
+        }
+
+
     }
 }
